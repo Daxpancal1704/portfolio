@@ -1,0 +1,124 @@
+ 
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll on animations */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Keyframe for fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Apply fade-in to elements in Home section */
+        .fade-in-element {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        /* Adjusted nth-child for the fade-in elements based on the new structure */
+        .home-content > *:nth-child(1) { animation-delay: 0.2s; } /* Photo */
+        .home-content > *:nth-child(2) { animation-delay: 0.4s; } /* H1 */
+        .home-content > *:nth-child(3) { animation-delay: 0.6s; } /* P */
+        .home-content > *:nth-child(4) { animation-delay: 0.8s; } /* Button */
+
+
+        /* Project card image overlay */
+        .project-card-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-card:hover .project-card-image-overlay {
+            opacity: 1;
+        }
+
+        /* NEW: Floating action button for Contact */
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4f46e5; /* indigo-600 */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .fab:hover {
+            background-color: #4338ca; /* indigo-700 */
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* NEW: Back to top button */
+        #backToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 90px; /* Above the FAB */
+            right: 20px;
+            background-color: #6366f1; /* indigo-500 */
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 999;
+        }
+
+        #backToTopBtn:hover {
+            background-color: #4f46e5; /* indigo-600 */
+            transform: scale(1.05);
+        }
+
+        /* NEW: Skill icon animations on hover */
+        .skill-icon-hover svg {
+            transition: transform 0.3s ease-in-out;
+        }
+        .skill-icon-hover:hover svg {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* NEW: Project image filter on hover */
+        .project-card img {
+            transition: filter 0.3s ease-in-out;
+        }
+        .project-card:hover img {
+            filter: brightness(0.7);
+        }
+
+    
